@@ -9,9 +9,9 @@ COPY package.json yarn.lock ./
 RUN yarn install
 
 COPY . .
-ARG api_host
+ARG http://localhost:8080
 ARG google_api_key
-ENV API_HOST=$api_host
+ENV API_HOST=http://localhost:8080
 ENV GOOGLE_API_KEY=$google_api_key
 RUN node scripts/l10n.js generate && \
     touch .env && \
